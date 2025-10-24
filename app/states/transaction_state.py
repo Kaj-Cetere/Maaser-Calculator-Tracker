@@ -50,6 +50,10 @@ class TransactionState(rx.State):
     filter_account_id: str = "all"
     sort_by: str = "date"
     sort_order: str = "desc"
+    show_import_modal: bool = False
+    import_json_text: str = ""
+    import_preview: list[Transaction] = []
+    import_error: str = ""
 
     @rx.var
     def potential_duplicates(self) -> list[str]:
@@ -313,6 +317,22 @@ class TransactionState(rx.State):
         self.current_transaction_id = None
         self.form_error = ""
 
+    def _reset_import_state(self):
+        self.import_json_text = ""
+        self.import_preview = []
+        self.import_error = ""
+        return rx.clear_selected_files("json_upload")
+
+    @rx.event
+    def open_import_modal(self):
+        self.show_import_modal = True
+        return self._reset_import_state()
+
+    @rx.event
+    def close_import_modal(self):
+        self.show_import_modal = False
+        return self._reset_import_state()
+
     @rx.event
     def open_new_transaction_modal(self):
         """Opens the modal to add a new transaction."""
@@ -342,6 +362,80 @@ class TransactionState(rx.State):
         """Closes the transaction form modal."""
         self.show_form_modal = False
         self._reset_form_fields()
+
+    def _validate_and_parse_json(self, json_content: str):
+        import json
+
+        self.import_preview = []
+        self.import_error = ""
+        try:
+            data = json.loads(json_content)
+            if not isinstance(data, list):
+                self.import_error = "Invalid JSON format: must be an array of objects."
+                return
+            preview_list = []
+            for item in data:
+                if not isinstance(item, dict):
+                    continue
+                if not all((k in item for k in ["type", "amount", "date"])):
+                    continue
+                if item["type"] not in ["income", "maaser"]:
+                    continue
+                try:
+                    amount = float(item["amount"])
+                except (ValueError, TypeError) as e:
+                    logging.exception(f"Error parsing amount during import: {e}")
+                    continue
+                new_transaction: Transaction = {
+                    "id": str(uuid.uuid4()),
+                    "type": item["type"],
+                    "amount": amount,
+                    "date": item.get("date", datetime.date.today().isoformat()),
+                    "time": item.get("time", "00:00"),
+                    "memo": item.get("memo", ""),
+                    "account_id": item.get("account_id"),
+                }
+                preview_list.append(new_transaction)
+            if not preview_list:
+                self.import_error = "No valid transactions found in the provided JSON."
+            self.import_preview = preview_list
+        except json.JSONDecodeError as e:
+            logging.exception(f"JSON Decode Error: {e}")
+            self.import_error = "Invalid JSON. Please check the syntax."
+        except Exception as e:
+            logging.exception(f"Unexpected error during JSON validation: {e}")
+            self.import_error = f"An unexpected error occurred: {e}"
+
+    @rx.event
+    async def handle_uploaded_file(self, files: list[rx.UploadFile]):
+        if not files:
+            self.import_error = "No file selected."
+            return
+        try:
+            file_content = await files[0].read()
+            self._validate_and_parse_json(file_content.decode("utf-8"))
+        except Exception as e:
+            logging.exception(f"Error reading uploaded file: {e}")
+            self.import_error = f"Error reading file: {e}"
+
+    @rx.event
+    def validate_and_preview_json(self):
+        if not self.import_json_text.strip():
+            self.import_error = "Pasted JSON content is empty."
+            return
+        self._validate_and_parse_json(self.import_json_text)
+
+    @rx.event
+    def confirm_import(self):
+        if not self.import_preview:
+            return
+        self.transactions.extend(self.import_preview)
+        self._save_transactions()
+        self._reset_import_state()
+        self.show_import_modal = False
+        return rx.toast.success(
+            f"Successfully imported {len(self.import_preview)} transactions."
+        )
 
     @rx.event
     def apply_suggestion(self, memo: str, amount: float):

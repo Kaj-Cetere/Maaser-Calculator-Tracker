@@ -2,6 +2,7 @@ import reflex as rx
 from app.components.sidebar import sidebar
 from app.components.transaction_list import transaction_list
 from app.components.transaction_form import transaction_form_modal
+from app.components.import_modal import import_modal
 from app.pages.analytics import analytics_page
 from app.pages.settings import settings_page
 
@@ -24,6 +25,7 @@ def index() -> rx.Component:
             class_name="flex flex-col flex-1 min-h-screen bg-gray-50",
         ),
         transaction_form_modal(),
+        import_modal(),
         rx.window_event_listener(
             on_key_down=rx.call_script("""
                 if (event.ctrlKey || event.metaKey) {

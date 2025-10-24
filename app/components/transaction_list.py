@@ -145,6 +145,12 @@ def transaction_list_header() -> rx.Component:
             ),
             filter_popover(),
             rx.el.button(
+                rx.icon("import", class_name="w-4 h-4 mr-2"),
+                "Import",
+                on_click=TransactionState.open_import_modal,
+                class_name="flex items-center px-3 py-2 text-sm font-semibold text-gray-700 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 transition-colors",
+            ),
+            rx.el.button(
                 rx.icon("download", class_name="w-4 h-4 mr-2"),
                 "Export CSV",
                 on_click=TransactionState.export_to_csv,
