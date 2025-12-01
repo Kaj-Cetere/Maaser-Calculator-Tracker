@@ -3,6 +3,12 @@ from typing import TypedDict, Literal
 import datetime
 import uuid
 import logging
+import os
+import shutil
+import json
+
+DATA_FILE = "data.json"
+BACKUP_FILE = "data_backup.json"
 
 
 class BankAccount(TypedDict):
@@ -15,7 +21,6 @@ class Transaction(TypedDict):
     type: Literal["income", "maaser"]
     amount: float
     date: str
-    time: str
     memo: str
     account_id: str | None
 
@@ -23,9 +28,6 @@ class Transaction(TypedDict):
 class TransactionState(rx.State):
     """Manages all transaction-related data and logic."""
 
-    _transactions_json: str = rx.LocalStorage("[]", name="transactions")
-    _accounts_json: str = rx.LocalStorage("[]", name="accounts")
-    _verified_json: str = rx.LocalStorage("[]", name="verified_transactions")
     transactions: list[Transaction] = []
     verified_transactions: list[str] = []
     accounts: list[BankAccount] = []
@@ -36,7 +38,6 @@ class TransactionState(rx.State):
     form_type: Literal["income", "maaser"] = "income"
     form_amount: str = ""
     form_date: str = ""
-    form_time: str = ""
     form_memo: str = ""
     form_account_id: str = "cash"
     memo_input_value: str = ""
@@ -72,12 +73,8 @@ class TransactionState(rx.State):
                     continue
                 if t1["amount"] == t2["amount"]:
                     try:
-                        date1 = datetime.datetime.fromisoformat(
-                            f"{t1['date']}T{t1['time']}"
-                        )
-                        date2 = datetime.datetime.fromisoformat(
-                            f"{t2['date']}T{t2['time']}"
-                        )
+                        date1 = datetime.date.fromisoformat(t1['date'])
+                        date2 = datetime.date.fromisoformat(t2['date'])
                         if abs(date1 - date2) <= datetime.timedelta(days=1):
                             duplicates.add(t1["id"])
                             duplicates.add(t2["id"])
@@ -133,7 +130,7 @@ class TransactionState(rx.State):
     def sorted_transactions(self) -> list[Transaction]:
         """Transactions sorted based on selected field and order."""
         key_map = {
-            "date": lambda t: (t["date"], t["time"]),
+            "date": lambda t: t["date"],
             "amount": lambda t: t["amount"],
             "type": lambda t: t["type"],
         }
@@ -193,7 +190,7 @@ class TransactionState(rx.State):
             patterns[t["type"]][t["memo"].lower().strip()].append(
                 {
                     "amount": t["amount"],
-                    "date": datetime.fromisoformat(f"{t['date']}T{t['time']}"),
+                    "date": datetime.fromisoformat(t['date']),
                 }
             )
         ranked_patterns = {"income": [], "maaser": []}
@@ -253,48 +250,58 @@ class TransactionState(rx.State):
 
     @rx.event(background=True)
     async def on_load(self):
-        """Load transactions and accounts from local storage on app startup."""
+        """Load data from local JSON file on app startup."""
         async with self:
-            import json
-
-            try:
-                self.transactions = json.loads(self._transactions_json)
-            except json.JSONDecodeError as e:
-                logging.exception(f"Error: {e}")
+            if os.path.exists(DATA_FILE):
+                try:
+                    with open(DATA_FILE, "r") as f:
+                        data = json.load(f)
+                        self.transactions = data.get("transactions", [])
+                        self.accounts = data.get("accounts", [])
+                        self.verified_transactions = data.get("verified_transactions", [])
+                except Exception as e:
+                    logging.exception(f"Error loading data: {e}")
+            else:
                 self.transactions = []
-            try:
-                self.accounts = json.loads(self._accounts_json)
-            except json.JSONDecodeError as e:
-                logging.exception(f"Error: {e}")
                 self.accounts = []
-            try:
-                self.verified_transactions = json.loads(self._verified_json)
-            except json.JSONDecodeError as e:
-                logging.exception(f"Error loading verified transactions: {e}")
                 self.verified_transactions = []
+
+    def _save_data(self):
+        """Saves all data to a local JSON file with backup."""
+        data = {
+            "transactions": self.transactions,
+            "accounts": self.accounts,
+            "verified_transactions": self.verified_transactions,
+        }
+        
+        if os.path.exists(DATA_FILE):
+            try:
+                shutil.copy2(DATA_FILE, BACKUP_FILE)
+            except Exception as e:
+                logging.error(f"Error creating backup: {e}")
+            
+        try:
+            with open(DATA_FILE, "w") as f:
+                json.dump(data, f, indent=2)
+        except Exception as e:
+            logging.error(f"Error saving data: {e}")
 
     def _save_transactions(self):
         """Helper to save transactions to local storage."""
-        import json
-
-        self._transactions_json = json.dumps(self.transactions)
+        self._save_data()
 
     def _save_verified_transactions(self):
         """Helper to save verified transactions to local storage."""
-        import json
-
-        self._verified_json = json.dumps(self.verified_transactions)
+        self._save_data()
 
     def _save_accounts(self):
         """Helper to save accounts to local storage."""
-        import json
-
-        self._accounts_json = json.dumps(self.accounts)
+        self._save_data()
 
     def _validate_form(self) -> bool:
         """Helper to validate form fields."""
-        if not self.form_amount or not self.form_date or (not self.form_time):
-            self.form_error = "Amount, Date, and Time are required."
+        if not self.form_amount or not self.form_date:
+            self.form_error = "Amount and Date are required."
             return False
         try:
             float(self.form_amount)
@@ -310,7 +317,6 @@ class TransactionState(rx.State):
         self.form_type = "income"
         self.form_amount = ""
         self.form_date = ""
-        self.form_time = ""
         self.form_memo = ""
         self.memo_input_value = ""
         self.form_account_id = "cash"
@@ -339,7 +345,6 @@ class TransactionState(rx.State):
         self._reset_form_fields()
         self.is_editing = False
         self.form_date = datetime.date.today().isoformat()
-        self.form_time = datetime.datetime.now().strftime("%H:%M")
         self.show_form_modal = True
 
     @rx.event
@@ -350,7 +355,6 @@ class TransactionState(rx.State):
         self.form_type = transaction["type"]
         self.form_amount = str(transaction["amount"])
         self.form_date = transaction["date"]
-        self.form_time = transaction["time"]
         self.form_memo = transaction["memo"]
         self.memo_input_value = transaction["memo"]
         self.form_account_id = transaction.get("account_id") or "cash"
@@ -391,7 +395,6 @@ class TransactionState(rx.State):
                     "type": item["type"],
                     "amount": amount,
                     "date": item.get("date", datetime.date.today().isoformat()),
-                    "time": item.get("time", "00:00"),
                     "memo": item.get("memo", ""),
                     "account_id": item.get("account_id"),
                 }
@@ -453,7 +456,6 @@ class TransactionState(rx.State):
             "type": self.form_type,
             "amount": float(self.form_amount),
             "date": self.form_date,
-            "time": self.form_time,
             "memo": self.form_memo,
             "account_id": self.form_account_id
             if self.form_account_id != "cash"
@@ -505,10 +507,10 @@ class TransactionState(rx.State):
 
         output = StringIO()
         writer = csv.writer(output)
-        writer.writerow(["ID", "Type", "Amount", "Date", "Time", "Memo"])
+        writer.writerow(["ID", "Type", "Amount", "Date", "Memo"])
         for t in self.sorted_transactions:
             writer.writerow(
-                [t["id"], t["type"], t["amount"], t["date"], t["time"], t["memo"]]
+                [t["id"], t["type"], t["amount"], t["date"], t["memo"]]
             )
         csv_data = output.getvalue()
         return rx.download(

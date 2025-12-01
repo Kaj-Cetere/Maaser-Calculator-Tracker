@@ -103,14 +103,14 @@ def filter_popover() -> rx.Component:
                         filter_input(
                             "Min Amount",
                             "min_amount",
-                            "number",
+                            "text",
                             TransactionState.filter_min_amount,
                             TransactionState.set_filter_min_amount,
                         ),
                         filter_input(
                             "Max Amount",
                             "max_amount",
-                            "number",
+                            "text",
                             TransactionState.filter_max_amount,
                             TransactionState.set_filter_max_amount,
                         ),

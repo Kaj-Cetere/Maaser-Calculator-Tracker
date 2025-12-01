@@ -1,8 +1,8 @@
 import reflex as rx
-from app.states.transaction_state import Transaction, TransactionState
+from app.states.business_expense_state import BusinessExpenseState
 
 
-def import_modal() -> rx.Component:
+def business_import_modal() -> rx.Component:
     return rx.radix.primitives.dialog.root(
         rx.radix.primitives.dialog.portal(
             rx.radix.primitives.dialog.overlay(
@@ -10,10 +10,10 @@ def import_modal() -> rx.Component:
             ),
             rx.radix.primitives.dialog.content(
                 rx.radix.primitives.dialog.title(
-                    "Import Transactions", class_name="text-xl font-bold text-gray-900"
+                    "Import Business Expenses", class_name="text-xl font-bold text-gray-900"
                 ),
                 rx.radix.primitives.dialog.description(
-                    "Upload a JSON file or paste JSON content to import transactions.",
+                    "Upload a JSON file or paste JSON content to import expenses.",
                     class_name="text-sm text-gray-500 mt-1 mb-4",
                 ),
                 rx.radix.primitives.dialog.close(
@@ -35,14 +35,14 @@ def import_modal() -> rx.Component:
                             rx.el.p("Drag & drop a JSON file here, or click to select"),
                             class_name="flex flex-col items-center justify-center p-6 border-2 border-dashed border-gray-300 rounded-lg bg-gray-50/50 hover:bg-gray-100/50 transition-colors",
                         ),
-                        id="json_upload",
+                        id="business_json_upload",
                         accept={"application/json": [".json"]},
                         multiple=False,
                         class_name="w-full mb-4 cursor-pointer",
                     ),
                     rx.el.div(
                         rx.foreach(
-                            rx.selected_files("json_upload"),
+                            rx.selected_files("business_json_upload"),
                             lambda file: rx.el.div(
                                 file, class_name="text-sm text-gray-600 font-medium"
                             ),
@@ -50,11 +50,11 @@ def import_modal() -> rx.Component:
                     ),
                     rx.el.button(
                         "Process Uploaded File",
-                        on_click=TransactionState.handle_uploaded_file(
-                            rx.upload_files(upload_id="json_upload")
+                        on_click=BusinessExpenseState.handle_uploaded_file(
+                            rx.upload_files(upload_id="business_json_upload")
                         ),
                         class_name="w-full mt-2 px-4 py-2 text-sm font-medium text-white bg-emerald-600 rounded-md shadow-sm hover:bg-emerald-700 disabled:opacity-50",
-                        disabled=rx.selected_files("json_upload").length() == 0,
+                        disabled=rx.selected_files("business_json_upload").length() == 0,
                     ),
                     class_name="mb-6",
                 ),
@@ -64,14 +64,14 @@ def import_modal() -> rx.Component:
                         class_name="text-md font-semibold text-gray-800 mb-2",
                     ),
                     rx.el.textarea(
-                        on_change=TransactionState.set_import_json_text,
-                        placeholder='[{"type": "income", "amount": 100.0, "date": "2024-01-01"}]',
+                        on_change=BusinessExpenseState.set_import_json_text,
+                        placeholder='[{"amount": 100.0, "date": "2024-01-01", "memo": "Lunch", "status": "pending"}]',
                         class_name="w-full min-h-[120px] p-2 border border-gray-300 rounded-md text-sm font-mono",
-                        default_value=TransactionState.import_json_text,
+                        default_value=BusinessExpenseState.import_json_text,
                     ),
                     rx.el.button(
                         "Validate & Preview",
-                        on_click=TransactionState.validate_and_preview_json,
+                        on_click=BusinessExpenseState.validate_and_preview_json,
                         class_name="w-full mt-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md shadow-sm hover:bg-blue-700",
                     ),
                     class_name="mb-4",
@@ -85,11 +85,11 @@ def import_modal() -> rx.Component:
                         rx.el.code(
                             """[
     {
-        "type": "income" | "maaser", // Required
         "amount": 123.45,         // Required
         "date": "YYYY-MM-DD",      // Required
-        "memo": "Transaction memo",  // Optional
-        "account_id": "uuid_string" // Optional (for bank accounts)
+        "memo": "Expense memo",    // Optional
+        "status": "pending" | "reimbursed", // Optional (default: pending)
+        "account_id": "uuid_string" // Optional
     }
 ]""",
                             class_name="block whitespace-pre-wrap p-3 bg-gray-100 rounded-md text-xs font-mono",
@@ -99,26 +99,26 @@ def import_modal() -> rx.Component:
                     class_name="my-4",
                 ),
                 rx.cond(
-                    TransactionState.import_error != "",
+                    BusinessExpenseState.import_error != "",
                     rx.el.div(
                         rx.icon("flag_triangle_right", class_name="w-4 h-4 mr-2"),
-                        TransactionState.import_error,
+                        BusinessExpenseState.import_error,
                         class_name="flex items-center text-sm text-red-600 bg-red-50 p-3 rounded-md my-4",
                     ),
                     None,
                 ),
                 rx.cond(
-                    TransactionState.import_preview.length() > 0,
+                    BusinessExpenseState.import_preview.length() > 0,
                     rx.el.div(
                         rx.el.h4(
-                            f"Preview: Found {TransactionState.import_preview.length()} valid transactions",
+                            f"Preview: Found {BusinessExpenseState.import_preview.length()} valid expenses",
                             class_name="text-md font-semibold text-gray-800 mb-2",
                         ),
                         rx.el.div(
                             rx.foreach(
-                                TransactionState.import_preview,
+                                BusinessExpenseState.import_preview,
                                 lambda tx: rx.el.div(
-                                    f"{tx['type'].capitalize()}: ${tx['amount']:.2f} on {tx['date']} - {tx['memo']}",
+                                    f"${tx['amount']:.2f} on {tx['date']} - {tx['memo']} ({tx['status']})",
                                     class_name="text-xs p-2 bg-gray-100 rounded",
                                 ),
                             ),
@@ -137,8 +137,8 @@ def import_modal() -> rx.Component:
                     ),
                     rx.el.button(
                         "Confirm Import",
-                        on_click=TransactionState.confirm_import,
-                        disabled=TransactionState.import_preview.length() == 0,
+                        on_click=BusinessExpenseState.confirm_import,
+                        disabled=BusinessExpenseState.import_preview.length() == 0,
                         class_name="px-4 py-2 text-sm font-medium text-white bg-emerald-600 rounded-md shadow-sm hover:bg-emerald-700 disabled:bg-emerald-300",
                     ),
                     class_name="flex justify-end gap-3 pt-4 border-t mt-4",
@@ -146,8 +146,8 @@ def import_modal() -> rx.Component:
                 class_name="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl shadow-xl w-full max-w-lg p-6 z-50",
             ),
         ),
-        open=TransactionState.show_import_modal,
+        open=BusinessExpenseState.show_import_modal,
         on_open_change=lambda open_state: rx.cond(
-            open_state, rx.noop(), TransactionState.close_import_modal()
+            open_state, rx.noop(), BusinessExpenseState.close_import_modal()
         ),
     )

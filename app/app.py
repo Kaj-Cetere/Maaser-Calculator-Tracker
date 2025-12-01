@@ -60,3 +60,7 @@ from app.states.transaction_state import TransactionState
 app.add_page(index, on_load=TransactionState.on_load)
 app.add_page(analytics_page, route="/analytics", on_load=TransactionState.on_load)
 app.add_page(settings_page, route="/settings", on_load=TransactionState.on_load)
+
+from app.pages.business_expenses import business_expenses_page
+from app.states.business_expense_state import BusinessExpenseState
+app.add_page(business_expenses_page, route="/business-expenses", on_load=[TransactionState.on_load, BusinessExpenseState.on_load])

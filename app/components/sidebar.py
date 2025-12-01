@@ -51,6 +51,12 @@ def sidebar() -> rx.Component:
                     "/settings",
                     rx.State.router.page.path == "/settings",
                 ),
+                nav_item(
+                    "briefcase",
+                    "Business Expenses",
+                    "/business-expenses",
+                    rx.State.router.page.path == "/business-expenses",
+                ),
                 class_name="flex-1 overflow-auto py-4 px-4 grid items-start gap-1 text-sm",
             ),
             rx.el.div(
