@@ -28,6 +28,10 @@ assets/external/
 *.sqlite
 *.sqlite3
 
+# Data directories
+data/
+data_backup/
+
 # IDE and editor files
 .vscode/
 .idea/
