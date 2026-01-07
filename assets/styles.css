@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    /* Polar Night (Dark Backgrounds) */
+    --nord0: #2E3440;
+    --nord1: #3B4252;
+    --nord2: #434C5E;
+    --nord3: #4C566A;
+
+    /* Snow Storm (Light Text/Elements) */
+    --nord4: #D8DEE9;
+    --nord5: #E5E9F0;
+    --nord6: #ECEFF4;
+
+    /* Frost (Primary Accents - Blues/Teals) */
+    --nord7: #8FBCBB;
+    --nord8: #88C0D0;
+    --nord9: #81A1C1;
+    --nord10: #5E81AC;
+
+    /* Aurora (Colorful Accents) */
+    --nord11: #BF616A;
+    /* Red/Error */
+    --nord12: #D08770;
+    /* Orange */
+    --nord13: #EBCB8B;
+    /* Yellow/Warning */
+    --nord14: #A3BE8C;
+    /* Green/Success */
+    --nord15: #B48EAD;
+    /* Purple */
+}
+
+/* Global Reset & Body */
+body {
+    background-color: var(--nord0);
+    color: var(--nord4);
+    font-family: 'Inter', 'Open Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--nord0);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--nord3);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--nord9);
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+    background: rgba(59, 66, 82, 0.7);
+    /* nord1 with opacity */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(236, 239, 244, 0.1);
+    /* nord6 border */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.glass-card {
+    background: linear-gradient(135deg, rgba(67, 76, 94, 0.4) 0%, rgba(46, 52, 64, 0.6) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(136, 192, 208, 0.1);
+    /* nord8 hint */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Text Gradients */
+.text-gradient-frost {
+    background: linear-gradient(to right, var(--nord7), var(--nord9));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-aurora {
+    background: linear-gradient(to right, var(--nord13), var(--nord15));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Animations */
+@keyframes snow-drift {
+    0% {
+        transform: translateY(0px);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+}

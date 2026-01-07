@@ -6,6 +6,23 @@ import logging
 import os
 import shutil
 import json
+from pyluach import dates as hebrew_dates
+
+
+def get_hebrew_date_string(gregorian_date_str: str, hebrew_chars: bool = True) -> str:
+    """Convert YYYY-MM-DD to Hebrew date string."""
+    if not gregorian_date_str:
+        return ""
+    try:
+        year, month, day = map(int, gregorian_date_str.split("-"))
+        greg = hebrew_dates.GregorianDate(year, month, day)
+        heb = greg.to_heb()
+        if hebrew_chars:
+            return heb.hebrew_date_string()
+        else:
+            return f"{heb.day} {heb.month_name()} {heb.year}"
+    except Exception:
+        return ""
 
 DATA_FILE = "data.json"
 BACKUP_FILE = "data_backup.json"
@@ -55,6 +72,7 @@ class TransactionState(rx.State):
     import_json_text: str = ""
     import_preview: list[Transaction] = []
     import_error: str = ""
+    deleted_history: list[Transaction] = []
 
     @rx.var
     def potential_duplicates(self) -> list[str]:
@@ -139,6 +157,37 @@ class TransactionState(rx.State):
         return sorted(self.filtered_transactions, key=sort_key, reverse=reverse)
 
     @rx.var
+    def transactions_with_hebrew_dates(self) -> list[dict]:
+        """Returns transactions with Hebrew date and account name added."""
+        accounts_map = {acc["id"]: acc["name"] for acc in self.accounts}
+        result = []
+        for t in self.sorted_transactions:
+            t_copy = dict(t)
+            t_copy["hebrew_date"] = get_hebrew_date_string(t["date"])
+            t_copy["account_name"] = accounts_map.get(t.get("account_id"), "")
+            result.append(t_copy)
+        return result
+
+    @rx.var
+    def form_hebrew_date(self) -> str:
+        """Hebrew date preview for the currently selected form date."""
+        if not self.form_date:
+            return ""
+        return get_hebrew_date_string(self.form_date)
+
+    @rx.var
+    def filter_start_hebrew_date(self) -> str:
+        if not self.filter_start_date:
+            return ""
+        return get_hebrew_date_string(self.filter_start_date)
+
+    @rx.var
+    def filter_end_hebrew_date(self) -> str:
+        if not self.filter_end_date:
+            return ""
+        return get_hebrew_date_string(self.filter_end_date)
+
+    @rx.var
     def total_income(self) -> float:
         """Calculates the total income from all transactions."""
         return sum((t["amount"] for t in self.transactions if t["type"] == "income"))
@@ -152,6 +201,37 @@ class TransactionState(rx.State):
     def maaser_due(self) -> float:
         """Calculates the maaser due (10% of income minus maaser given)."""
         return self.total_income * 0.1 - self.total_maaser
+
+    @rx.var
+    def maaser_percentage(self) -> float:
+        """Calculates the percentage of income given to maaser."""
+        if self.total_income == 0:
+            if self.total_maaser > 0:
+                return 100.0  # Given maaser with no income? Maybe weird but set to 100
+            return 0.0
+        return (self.total_maaser / self.total_income) * 100
+
+    @rx.var
+    def maaser_status_color(self) -> str:
+        """Returns a tailwind color class based on the maaser percentage."""
+        percentage = self.maaser_percentage
+        if percentage >= 20:
+            return "text-purple-400"  # Chomash goal met
+        elif percentage >= 10:
+            return "text-emerald-400"  # Maaser goal met
+        else:
+            return "text-amber-400"   # Below Maaser
+
+    @rx.var
+    def maaser_status_label(self) -> str:
+        """Returns a label based on the maaser percentage status."""
+        percentage = self.maaser_percentage
+        if percentage >= 20:
+            return "Chomash Met (20%+)"
+        elif percentage >= 10:
+            return "Maaser Met (10%+)"
+        else:
+            return f"{10 - percentage:.1f}% to Maaser"
 
     @rx.var
     def account_names_by_id(self) -> dict[str, str]:
@@ -480,13 +560,37 @@ class TransactionState(rx.State):
 
     @rx.event
     def delete_transaction(self, transaction_id: str):
-        """Deletes a transaction by its ID."""
+        """Deletes a transaction by its ID and adds it to history."""
+        for t in self.transactions:
+            if t["id"] == transaction_id:
+                self.deleted_history.append(t)
+                break
+        
         self.transactions = [t for t in self.transactions if t["id"] != transaction_id]
         self.verified_transactions = [
             vid for vid in self.verified_transactions if vid != transaction_id
         ]
         self._save_transactions()
         self._save_verified_transactions()
+
+    @rx.event
+    def undo_delete(self, transaction_id: str):
+        """Restores a specific transaction from history."""
+        restored = None
+        for t in self.deleted_history:
+            if t["id"] == transaction_id:
+                restored = t
+                break
+        
+        if restored:
+            self.transactions.append(restored)
+            self.deleted_history = [t for t in self.deleted_history if t["id"] != transaction_id]
+            self._save_transactions()
+
+    @rx.event
+    def close_undo_banner(self, transaction_id: str):
+        """Removes a transaction from the undo history."""
+        self.deleted_history = [t for t in self.deleted_history if t["id"] != transaction_id]
 
     @rx.event
     def toggle_verified(self, transaction_id: str):

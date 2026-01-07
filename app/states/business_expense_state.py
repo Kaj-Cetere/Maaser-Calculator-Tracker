@@ -6,7 +6,7 @@ import logging
 import os
 import shutil
 import json
-from app.states.transaction_state import BankAccount
+from app.states.transaction_state import BankAccount, get_hebrew_date_string
 
 DATA_FILE = "business_data.json"
 BACKUP_FILE = "business_data_backup.json"
@@ -48,6 +48,7 @@ class BusinessExpenseState(rx.State):
     import_json_text: str = ""
     import_preview: list[BusinessTransaction] = []
     import_error: str = ""
+    deleted_history: list[BusinessTransaction] = []
 
     @rx.var
     def total_pending(self) -> float:
@@ -81,6 +82,25 @@ class BusinessExpenseState(rx.State):
         sort_key = key_map.get(self.sort_by, key_map["date"])
         reverse = self.sort_order == "desc"
         return sorted(self.filtered_transactions, key=sort_key, reverse=reverse)
+
+    @rx.var
+    def transactions_with_hebrew_dates(self) -> list[dict]:
+        """Returns transactions with Hebrew date and account name added."""
+        accounts_map = {acc["id"]: acc["name"] for acc in self.accounts}
+        result = []
+        for t in self.sorted_transactions:
+            t_copy = dict(t)
+            t_copy["hebrew_date"] = get_hebrew_date_string(t["date"])
+            t_copy["account_name"] = accounts_map.get(t.get("account_id"), "")
+            result.append(t_copy)
+        return result
+
+    @rx.var
+    def form_hebrew_date(self) -> str:
+        """Hebrew date preview for the currently selected form date."""
+        if not self.form_date:
+            return ""
+        return get_hebrew_date_string(self.form_date)
 
     @rx.var
     def potential_duplicates(self) -> list[str]:
@@ -276,8 +296,33 @@ class BusinessExpenseState(rx.State):
 
     @rx.event
     def delete_transaction(self, transaction_id: str):
+        """Deletes a transaction by its ID and adds it to history."""
+        for t in self.transactions:
+            if t["id"] == transaction_id:
+                self.deleted_history.append(t)
+                break
+        
         self.transactions = [t for t in self.transactions if t["id"] != transaction_id]
         self._save_data()
+
+    @rx.event
+    def undo_delete(self, transaction_id: str):
+        """Restores a specific transaction from history."""
+        restored = None
+        for t in self.deleted_history:
+            if t["id"] == transaction_id:
+                restored = t
+                break
+        
+        if restored:
+            self.transactions.append(restored)
+            self.deleted_history = [t for t in self.deleted_history if t["id"] != transaction_id]
+            self._save_data()
+
+    @rx.event
+    def close_undo_banner(self, transaction_id: str):
+        """Removes a transaction from the undo history."""
+        self.deleted_history = [t for t in self.deleted_history if t["id"] != transaction_id]
 
     @rx.event
     def toggle_status(self, transaction_id: str):

@@ -15,14 +15,14 @@ def index() -> rx.Component:
                 rx.el.div(
                     rx.el.h1(
                         "Dashboard",
-                        class_name="text-3xl font-bold text-gray-800 tracking-tight",
+                        class_name="text-3xl font-bold text-[#ECEFF4] tracking-tight",
                     ),
-                    class_name="pb-6 border-b border-gray-200 mb-6",
+                    class_name="pb-6 border-b border-[#434C5E] mb-6",
                 ),
                 transaction_list(),
-                class_name="flex-1 p-6 md:p-8 lg:p-10",
+                class_name="flex-1 p-6 md:p-8 lg:p-10 z-10",
             ),
-            class_name="flex flex-col flex-1 min-h-screen bg-gray-50",
+            class_name="flex flex-col flex-1 min-h-screen bg-[#2E3440] text-[#ECEFF4]",
         ),
         transaction_form_modal(),
         import_modal(),
@@ -40,19 +40,15 @@ def index() -> rx.Component:
                 }
                 """)
         ),
-        class_name="flex min-h-screen w-full font-['Open_Sans'] bg-white",
+        class_name="flex min-h-screen w-full font-['Inter'] bg-[#2E3440] text-[#D8DEE9]",
     )
 
 
 app = rx.App(
-    theme=rx.theme(appearance="light"),
-    head_components=[
-        rx.el.link(rel="preconnect", href="https://fonts.googleapis.com"),
-        rx.el.link(rel="preconnect", href="https://fonts.gstatic.com", cross_origin=""),
-        rx.el.link(
-            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap",
-            rel="stylesheet",
-        ),
+    theme=rx.theme(appearance="dark", accent_color="teal", radius="large"),
+    stylesheets=[
+        "/styles.css",
+        "https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap",
     ],
 )
 from app.states.transaction_state import TransactionState

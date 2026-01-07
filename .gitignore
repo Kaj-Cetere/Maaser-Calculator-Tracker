@@ -82,3 +82,8 @@ MANIFEST
 .mypy_cache/
 .dmypy.json
 dmypy.json
+
+business_data_backup.json
+business_data.json
+data_backup.json
+data.json

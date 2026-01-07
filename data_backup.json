@@ -1,5 +1,1322 @@
 {
-  "transactions": [],
-  "accounts": [],
-  "verified_transactions": []
+  "transactions": [
+    {
+      "id": "42e7fa7a-f7ff-43e1-a392-6d3e6f0cdadb",
+      "type": "maaser",
+      "amount": 20.0,
+      "date": "2024-12-13",
+      "memo": "",
+      "account_id": null
+    },
+    {
+      "id": "82791519-30e0-4dd3-9614-9cb38f3982dd",
+      "type": "income",
+      "amount": 1000.0,
+      "date": "2024-12-12",
+      "memo": "koilel cheshvon",
+      "account_id": null
+    },
+    {
+      "id": "bd7901f1-ecd0-4431-a43b-a0e80e1db153",
+      "type": "income",
+      "amount": 1611.0,
+      "date": "2024-12-12",
+      "memo": "JCM",
+      "account_id": null
+    },
+    {
+      "id": "356690dc-eefe-43d0-9dc9-a5fd155ce9c9",
+      "type": "maaser",
+      "amount": 108.0,
+      "date": "2024-12-12",
+      "memo": "Chabad LIC",
+      "account_id": null
+    },
+    {
+      "id": "c79261a7-b4b4-4217-a461-70a68a1cd7a7",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2024-12-09",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "9e832606-c4f2-4632-8b83-d3e5fb983c94",
+      "type": "maaser",
+      "amount": 54.0,
+      "date": "2024-12-05",
+      "memo": "",
+      "account_id": null
+    },
+    {
+      "id": "c7caa352-6ebe-4f19-8ab5-28573f3f1e2b",
+      "type": "maaser",
+      "amount": 18.0,
+      "date": "2024-12-05",
+      "memo": "",
+      "account_id": null
+    },
+    {
+      "id": "c4f30817-5b10-4281-857b-ff13ff00f06d",
+      "type": "maaser",
+      "amount": 25.0,
+      "date": "2024-12-17",
+      "memo": "mivtzoyim",
+      "account_id": null
+    },
+    {
+      "id": "11d069be-440b-4b62-96d4-79d68f8e7f67",
+      "type": "maaser",
+      "amount": 180.0,
+      "date": "2024-12-16",
+      "memo": "chabad of carolina",
+      "account_id": null
+    },
+    {
+      "id": "4c30be3b-2fa2-4c29-8046-58e1ebc541b6",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2024-12-16",
+      "memo": "iyyun",
+      "account_id": null
+    },
+    {
+      "id": "7d22a0a3-ae1f-4a95-9dd1-7eeda4a8acc7",
+      "type": "maaser",
+      "amount": 97.0,
+      "date": "2024-12-18",
+      "memo": "RCCS",
+      "account_id": null
+    },
+    {
+      "id": "cc614891-80fe-480f-9e1c-be3f8ebe6cc6",
+      "type": "maaser",
+      "amount": 18.0,
+      "date": "2024-12-20",
+      "memo": "",
+      "account_id": null
+    },
+    {
+      "id": "8ac99744-8ac9-4fc3-85f2-4997951273ee",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2024-12-23",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "b0ee8a47-653b-4c7b-b673-d08b212d8787",
+      "type": "maaser",
+      "amount": 20.0,
+      "date": "2024-12-24",
+      "memo": "",
+      "account_id": null
+    },
+    {
+      "id": "cc056f49-4208-49bf-8e6f-2f2d9b7b091e",
+      "type": "income",
+      "amount": 320.0,
+      "date": "2024-12-25",
+      "memo": "Gelt-extended pinsons",
+      "account_id": null
+    },
+    {
+      "id": "0d0ffffd-cd3e-4750-885b-afbc715dbb21",
+      "type": "income",
+      "amount": 2001.0,
+      "date": "2024-12-06",
+      "memo": "gold from Rafi",
+      "account_id": null
+    },
+    {
+      "id": "a9436401-0403-4bd3-af93-88ef003547e2",
+      "type": "income",
+      "amount": 50.0,
+      "date": "2024-12-26",
+      "memo": "Gelt-JCM",
+      "account_id": null
+    },
+    {
+      "id": "96e7ba1d-a323-49fd-b413-2195cb29f87e",
+      "type": "income",
+      "amount": 1767.0,
+      "date": "2024-12-26",
+      "memo": "JCM",
+      "account_id": null
+    },
+    {
+      "id": "943b0702-45ff-470a-aff2-de39f393d0d3",
+      "type": "maaser",
+      "amount": 60.0,
+      "date": "2024-12-27",
+      "memo": "shmuly shputz",
+      "account_id": null
+    },
+    {
+      "id": "59e87672-bde9-45df-8020-28252fb09036",
+      "type": "income",
+      "amount": 130.0,
+      "date": "2024-12-29",
+      "memo": "gelt-rubinson party",
+      "account_id": null
+    },
+    {
+      "id": "9c66098d-1ce7-428a-97f3-347466cdc0ad",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2024-12-30",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "61287b5f-23a4-40c9-9028-10718c4c35f9",
+      "type": "maaser",
+      "amount": 5.0,
+      "date": "2024-12-30",
+      "memo": "",
+      "account_id": null
+    },
+    {
+      "id": "d5db2599-8e36-4e0b-b316-bcf71b640f0e",
+      "type": "income",
+      "amount": 200.0,
+      "date": "2025-01-01",
+      "memo": "gelt-pinson mother",
+      "account_id": null
+    },
+    {
+      "id": "e5ab3cb5-2ed5-401d-bff1-9167228e3f59",
+      "type": "income",
+      "amount": 2500.0,
+      "date": "2025-01-03",
+      "memo": "Simcha",
+      "account_id": null
+    },
+    {
+      "id": "ae1fcd60-d615-435c-88b3-c2d81919f7b5",
+      "type": "income",
+      "amount": 1000.0,
+      "date": "2025-01-07",
+      "memo": "grandfather pinson",
+      "account_id": null
+    },
+    {
+      "id": "8dfd90b8-a1d8-44ce-9be6-b2fd3eaf9cf4",
+      "type": "income",
+      "amount": 75.0,
+      "date": "2025-01-09",
+      "memo": "gelt-zaidy schapiro",
+      "account_id": null
+    },
+    {
+      "id": "cdd8b111-6ca7-466a-8d1f-c26836a504cf",
+      "type": "maaser",
+      "amount": 10.0,
+      "date": "2025-01-09",
+      "memo": "",
+      "account_id": null
+    },
+    {
+      "id": "42487e6f-6f19-442e-93d2-0c9ed93a615d",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-01-06",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "8070dab2-70e8-4533-983e-e58fd639a1af",
+      "type": "income",
+      "amount": 1773.0,
+      "date": "2025-01-09",
+      "memo": "JCM",
+      "account_id": null
+    },
+    {
+      "id": "2c48efed-30fd-4574-8459-4ad289ee56c1",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-01-13",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "0c95da12-bd33-4792-ba88-9a040b87294f",
+      "type": "maaser",
+      "amount": 36.0,
+      "date": "2025-01-12",
+      "memo": "chabad of charlot",
+      "account_id": null
+    },
+    {
+      "id": "b162f307-0fce-404c-8cb9-50fa13939e61",
+      "type": "maaser",
+      "amount": 100.0,
+      "date": "2025-01-13",
+      "memo": "mendel vilenkin",
+      "account_id": null
+    },
+    {
+      "id": "234cc7c7-55e6-4d5a-9060-17e19ad621fa",
+      "type": "maaser",
+      "amount": 105.0,
+      "date": "2025-01-13",
+      "memo": "chabad of pasedena",
+      "account_id": null
+    },
+    {
+      "id": "b307ef6a-f7eb-446d-a043-93a682a96dc9",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-01-21",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "de72da4f-fd0c-43b6-8398-9d195a8debce",
+      "type": "maaser",
+      "amount": 100.0,
+      "date": "2025-01-22",
+      "memo": "Bonei Olam",
+      "account_id": null
+    },
+    {
+      "id": "09db9f17-4f8b-4050-a500-1e3aafab43a8",
+      "type": "income",
+      "amount": 1720.0,
+      "date": "2025-01-23",
+      "memo": "JCM",
+      "account_id": null
+    },
+    {
+      "id": "62853e51-ff31-460f-b94a-4816b24f19fb",
+      "type": "maaser",
+      "amount": 250.0,
+      "date": "2025-01-28",
+      "memo": "OT auction",
+      "account_id": null
+    },
+    {
+      "id": "f5cc358d-487f-4ed4-be80-4f9a525d978d",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-02-03",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "4832b612-b193-4b69-a78e-fbf9a056bca9",
+      "type": "maaser",
+      "amount": 4000.0,
+      "date": "2025-02-05",
+      "memo": "Wolosow family",
+      "account_id": null
+    },
+    {
+      "id": "322d2d31-ee1c-4604-af4e-f4de1a8411a3",
+      "type": "maaser",
+      "amount": 54.0,
+      "date": "2025-02-05",
+      "memo": "machon leyahadus",
+      "account_id": null
+    },
+    {
+      "id": "dbff180d-281d-4362-892d-e10588de123f",
+      "type": "income",
+      "amount": 1708.0,
+      "date": "2025-02-06",
+      "memo": "JCM",
+      "account_id": null
+    },
+    {
+      "id": "46d5d15e-2613-470a-acdb-81f760f119ff",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-02-10",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "db59a232-03d1-41c0-a7bf-fb84740e2b49",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-02-18",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "cdb163ac-6df7-4f85-a46a-1867bb3507ac",
+      "type": "income",
+      "amount": 2500.0,
+      "date": "2025-02-18",
+      "memo": "Simcha",
+      "account_id": null
+    },
+    {
+      "id": "68d5951d-42cb-4bfa-8eab-6d4aae83a372",
+      "type": "income",
+      "amount": 1538.0,
+      "date": "2025-02-20",
+      "memo": "JCM",
+      "account_id": null
+    },
+    {
+      "id": "2c973917-f026-4317-9046-fbfc2dbea5ee",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-02-24",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "2c56ec53-6067-47d4-9462-0b11e978927f",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-03-03",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "034d5db2-19c9-40a3-a350-7c25510906b8",
+      "type": "income",
+      "amount": 1631.0,
+      "date": "2025-03-06",
+      "memo": "JCM",
+      "account_id": null
+    },
+    {
+      "id": "e62c844a-9d1f-4eda-a820-f0d5bbad1dfc",
+      "type": "income",
+      "amount": 2500.0,
+      "date": "2025-03-07",
+      "memo": "Simcha",
+      "account_id": null
+    },
+    {
+      "id": "ee150205-80a5-4b21-a029-b678239b8ff5",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-03-10",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "bbe33a0a-d159-4f42-a58f-82902a848635",
+      "type": "maaser",
+      "amount": 10.0,
+      "date": "2025-03-14",
+      "memo": "colel chabad",
+      "account_id": null
+    },
+    {
+      "id": "056153c3-a773-400a-9d13-973bb354865f",
+      "type": "maaser",
+      "amount": 36.0,
+      "date": "2025-03-16",
+      "memo": "purim",
+      "account_id": null
+    },
+    {
+      "id": "fc5d8ee8-4303-4613-84ab-083da2313951",
+      "type": "maaser",
+      "amount": 36.0,
+      "date": "2025-03-16",
+      "memo": "purim",
+      "account_id": null
+    },
+    {
+      "id": "5b8b3a68-9051-4b70-b4d9-c4525179b5e2",
+      "type": "maaser",
+      "amount": 36.0,
+      "date": "2025-03-16",
+      "memo": "purim",
+      "account_id": null
+    },
+    {
+      "id": "3fe35da0-0fb0-4138-86d1-14dfebca8d2e",
+      "type": "maaser",
+      "amount": 36.0,
+      "date": "2025-03-16",
+      "memo": "purim",
+      "account_id": null
+    },
+    {
+      "id": "1272344b-742e-4178-9d31-81d32ccc6254",
+      "type": "maaser",
+      "amount": 36.0,
+      "date": "2025-03-16",
+      "memo": "purim",
+      "account_id": null
+    },
+    {
+      "id": "e7f8e80e-aa02-4557-af39-12ab376c110a",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-03-17",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "d3ec7d9b-1ef6-48ec-a9b1-357ed6179a56",
+      "type": "income",
+      "amount": 1531.0,
+      "date": "2025-03-20",
+      "memo": "JCM",
+      "account_id": null
+    },
+    {
+      "id": "8fa05359-c759-4396-91ef-d90a04165e67",
+      "type": "maaser",
+      "amount": 18.0,
+      "date": "2025-03-20",
+      "memo": "",
+      "account_id": null
+    },
+    {
+      "id": "5f12e94c-3702-48a7-846f-fceb2985b8b8",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-03-24",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "411efa16-bcbd-4cb5-b48c-42a66d70f8b7",
+      "type": "income",
+      "amount": 3000.0,
+      "date": "2025-03-27",
+      "memo": "Koilel Kislev/Teves/Shevat",
+      "account_id": null
+    },
+    {
+      "id": "b1c2995a-6180-4ba7-9bb6-327cf08fc071",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-03-31",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "009e1ecf-a3a8-447b-b691-2040fcdd125a",
+      "type": "income",
+      "amount": 1350.0,
+      "date": "2025-04-03",
+      "memo": "JCM",
+      "account_id": null
+    },
+    {
+      "id": "e8a4e4cc-4853-4737-8604-f61d2a247a57",
+      "type": "income",
+      "amount": 2500.0,
+      "date": "2025-04-03",
+      "memo": "Simcha",
+      "account_id": null
+    },
+    {
+      "id": "c9f6bafa-dbd2-483d-b8b8-f724b026cdfa",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-04-07",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "c8d68631-e80b-4b8e-8293-be72772014f5",
+      "type": "maaser",
+      "amount": 360.0,
+      "date": "2025-04-11",
+      "memo": "Maos chitin",
+      "account_id": null
+    },
+    {
+      "id": "4d7935b8-b885-46d3-b8c6-dfad3e663c88",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-04-14",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "fa51af14-4636-4fda-9c4b-a49b818dd184",
+      "type": "income",
+      "amount": 1475.0,
+      "date": "2025-04-17",
+      "memo": "JCM",
+      "account_id": null
+    },
+    {
+      "id": "175a785c-eadb-43ab-9d93-51876326d2f6",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-04-21",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "41ab9185-6d5a-4681-812f-e62b888c320a",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-04-28",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "a83ab05d-31b7-4373-8be3-901e0c4771c4",
+      "type": "income",
+      "amount": 1576.0,
+      "date": "2025-05-01",
+      "memo": "JCM",
+      "account_id": null
+    },
+    {
+      "id": "dce65102-3faa-4884-b9e1-c2a3ce16c397",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-05-12",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "d0cda9d4-c55a-4814-b284-f0657133a98a",
+      "type": "income",
+      "amount": 1595.0,
+      "date": "2025-05-15",
+      "memo": "JCM",
+      "account_id": null
+    },
+    {
+      "id": "f315a14a-02bf-4cfb-93c2-f1398a24c436",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-05-19",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "d2e5d988-1920-4877-ae6c-f113abe599f7",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-05-27",
+      "memo": "IYYUN",
+      "account_id": null
+    },
+    {
+      "id": "e21cc206-a66f-4b00-b22d-eebc7a765117",
+      "type": "income",
+      "amount": 1603.0,
+      "date": "2025-05-29",
+      "memo": "JCM",
+      "account_id": null
+    },
+    {
+      "id": "6a527f0d-295a-4e8a-b58c-552ac289b31e",
+      "type": "income",
+      "amount": 2500.0,
+      "date": "2025-05-05",
+      "memo": "Simcha",
+      "account_id": null
+    },
+    {
+      "id": "ac85e2a3-b74e-446a-a5f2-dce79044a4a7",
+      "type": "maaser",
+      "amount": 10.0,
+      "date": "2025-05-17",
+      "memo": "OHEL",
+      "account_id": null
+    },
+    {
+      "id": "6341ed88-2c4e-43ea-9bbb-8fda5d087d68",
+      "type": "maaser",
+      "amount": 194.0,
+      "date": "2025-07-29",
+      "memo": "MCM auction",
+      "account_id": null
+    },
+    {
+      "id": "f6077a6f-d11c-41c7-8cbb-e2fa95f92e05",
+      "type": "maaser",
+      "amount": 100.0,
+      "date": "2025-08-14",
+      "memo": "sholom ber gurary",
+      "account_id": null
+    },
+    {
+      "id": "c2701af3-25f7-4710-9a75-afaf82817bf6",
+      "type": "maaser",
+      "amount": 186.0,
+      "date": "2025-08-14",
+      "memo": "chabad of cobb",
+      "account_id": null
+    },
+    {
+      "id": "095e9dba-c1fc-4a35-ba9b-891f01ae9345",
+      "type": "maaser",
+      "amount": 18.0,
+      "date": "2025-08-13",
+      "memo": "OHEL",
+      "account_id": null
+    },
+    {
+      "id": "ae4ba3c4-bb01-4b94-a052-0918887dbf45",
+      "type": "maaser",
+      "amount": 5.0,
+      "date": "2025-05-09",
+      "memo": "toirem",
+      "account_id": null
+    },
+    {
+      "id": "abfa4694-6ac9-4041-89ce-838ef9e716c4",
+      "type": "maaser",
+      "amount": 36.0,
+      "date": "2025-02-20",
+      "memo": "chabad of chevron",
+      "account_id": null
+    },
+    {
+      "id": "42aaca25-8aaa-403f-911f-d10b684a2a6c",
+      "type": "income",
+      "amount": 316.0,
+      "date": "2025-09-02",
+      "memo": "Collective gifts for Chana",
+      "account_id": null
+    },
+    {
+      "id": "56e9c83c-05cf-4602-ad51-99b3144b75e8",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-05-05",
+      "memo": "IYYUN",
+      "account_id": "32a06304-d2da-464a-a0d4-1ab2df512818"
+    },
+    {
+      "id": "ec702f49-3a3a-4709-a135-d7a2b66ed7fd",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-06-02",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "4ed710c4-f687-4078-b8cb-707e8322957d",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-06-09",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "1e674f0b-ebf5-4c9d-9096-d58e842c4c47",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-06-16",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "a5d0d332-3e83-437c-9e60-223dd3921549",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-06-23",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "344fef5e-9b97-430f-832a-159a083d1dd9",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-06-30",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "473d4e60-b6c6-4554-974c-b331d5b469dc",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-07-07",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "84304a57-30d7-43c6-9d2e-3039109c8e97",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-07-14",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "09de248d-28b9-4e48-8091-da91bae1f469",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-07-21",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "41e60de7-e691-4d53-a06d-74aa96c30a51",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-07-28",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "95518518-430e-4a73-b16c-d7aaf2bb52be",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-08-04",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "4d59593e-2276-474b-b51f-4d88d1f96b7d",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-08-11",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "25a9fdf8-ebdd-4f8e-b48b-054588a1072b",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-08-18",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "6cd65626-6a85-4d3b-bbe1-4f1b27302d11",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-08-25",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "d827506f-0523-4b89-9cec-e2ed1811906d",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-09-02",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "f29c7b15-68cc-40cd-ab60-d2857aa9ffff",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-09-08",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "739fcba9-bc95-4406-9cec-c4c04e78827f",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-09-15",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "af551cb7-caed-42b8-aa54-7ba2cc4c4ebd",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-09-22",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "4944b996-a593-4f18-87ab-9c0b27be2297",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-09-29",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "7f2c851b-6e02-48d1-8d49-6271533fd971",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-10-06",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "ae6ffc25-9a74-42e6-89c9-e0905cc376b7",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-10-14",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "c7f5331d-9a8e-420e-9722-b6f2848fa825",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-10-20",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "4f3aea94-5909-4c59-90f4-26a5efa6f1f6",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-10-27",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "47ffb378-ce7e-49ce-8c6e-fea2c1c0c921",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-11-03",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "1085850b-6f8f-49d0-8c75-d3f3adacf09c",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-11-10",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "cc5c9faa-6753-4304-90bb-c6e8bc6f32a7",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-11-17",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "739a143f-0e2c-49cd-980d-d195fa22729b",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-11-24",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "3f2cf43a-57a7-40c1-9a9c-2be10c3c8f36",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-12-01",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "87b726a9-7492-422d-8bbd-803b0baf1ef1",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-12-08",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "776070cf-ed76-4760-a066-d53f564caf89",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-12-15",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "d8e4a9a6-1640-45cb-a0a1-47dc811a4e5e",
+      "type": "income",
+      "amount": 350.0,
+      "date": "2025-12-22",
+      "memo": "IYYUN",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "d2baa4ed-e7a5-4a72-ad75-0b4d09d85e50",
+      "type": "income",
+      "amount": 170.0,
+      "date": "2025-12-11",
+      "memo": "Motherhood Center",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "6bafb50d-62ec-42c5-8eea-86c4358714c6",
+      "type": "income",
+      "amount": 2500.0,
+      "date": "2025-06-01",
+      "memo": "Simcha",
+      "account_id": null
+    },
+    {
+      "id": "ea6321ee-f5da-4761-a4a0-187f84819760",
+      "type": "income",
+      "amount": 2500.0,
+      "date": "2025-07-02",
+      "memo": "Simcha",
+      "account_id": null
+    },
+    {
+      "id": "b57be890-aef7-480e-aca2-3685f81c0174",
+      "type": "income",
+      "amount": 2500.0,
+      "date": "2025-08-01",
+      "memo": "Simcha",
+      "account_id": null
+    },
+    {
+      "id": "2a8ec14d-14da-424b-8f63-c08c5c8efc2b",
+      "type": "income",
+      "amount": 2500.0,
+      "date": "2025-09-01",
+      "memo": "Simcha",
+      "account_id": null
+    },
+    {
+      "id": "891b2f25-21a8-4f5a-9b0f-a4e745262cc8",
+      "type": "income",
+      "amount": 2500.0,
+      "date": "2025-10-01",
+      "memo": "Simcha",
+      "account_id": null
+    },
+    {
+      "id": "f822ea9c-681e-49ea-903c-bc072d3240bf",
+      "type": "income",
+      "amount": 2500.0,
+      "date": "2025-11-01",
+      "memo": "Simcha",
+      "account_id": null
+    },
+    {
+      "id": "68997868-62a9-4aad-8a15-02bcb2b021f5",
+      "type": "income",
+      "amount": 2500.0,
+      "date": "2025-12-01",
+      "memo": "Simcha",
+      "account_id": null
+    },
+    {
+      "id": "c7610d0c-d5e4-4b2e-855f-8e61be0681fb",
+      "type": "income",
+      "amount": 18.0,
+      "date": "2025-06-24",
+      "memo": "Solomon Shechter",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "986c2fa5-90b0-4d62-9223-2602395b79f3",
+      "type": "income",
+      "amount": 1642.0,
+      "date": "2025-06-12",
+      "memo": "JCM",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "2c5bdfa0-0ec9-4ef0-a7fc-ad0ad67cdf97",
+      "type": "income",
+      "amount": 1296.0,
+      "date": "2025-06-26",
+      "memo": "JCM",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "a42a581f-be54-46d1-a2a3-f0a560fdaf19",
+      "type": "income",
+      "amount": 1750.0,
+      "date": "2025-11-14",
+      "memo": "Chabad of Cary",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "cb4a2a59-4f34-4807-9f2e-94421b879a90",
+      "type": "income",
+      "amount": 1225.0,
+      "date": "2025-12-15",
+      "memo": "Chabad of Cary",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "d955a598-7467-4660-a3dd-3286024d773d",
+      "type": "maaser",
+      "amount": 36.0,
+      "date": "2025-09-10",
+      "memo": "Chabad of Williamstown",
+      "account_id": "32a06304-d2da-464a-a0d4-1ab2df512818"
+    },
+    {
+      "id": "90bdd49a-81e1-4943-bea9-b0467e212d61",
+      "type": "income",
+      "amount": 500.0,
+      "date": "2025-10-22",
+      "memo": "Koilel Tishrei Bonus",
+      "account_id": "32a06304-d2da-464a-a0d4-1ab2df512818"
+    },
+    {
+      "id": "17450603-073c-4bcb-b13e-11acafcf7b62",
+      "type": "maaser",
+      "amount": 36.0,
+      "date": "2025-11-03",
+      "memo": "NWS Chabad Youth Brooklyn",
+      "account_id": "32a06304-d2da-464a-a0d4-1ab2df512818"
+    },
+    {
+      "id": "04dac1e6-1f15-4800-a574-0c4b2612f744",
+      "type": "maaser",
+      "amount": 4.0,
+      "date": "2025-12-04",
+      "memo": "mivtsoim",
+      "account_id": "32a06304-d2da-464a-a0d4-1ab2df512818"
+    },
+    {
+      "id": "ef863939-0603-47c1-a738-b238ce816510",
+      "type": "maaser",
+      "amount": 18.0,
+      "date": "2025-06-12",
+      "memo": "Chabad of S Barbara",
+      "account_id": "3d0f81a6-5f8c-43ad-9e2c-d8d15d5ca176"
+    },
+    {
+      "id": "721ffd42-e49e-40c8-b1cf-e31f713a55ee",
+      "type": "maaser",
+      "amount": 37.0,
+      "date": "2025-06-20",
+      "memo": "Children's Sefer Torah",
+      "account_id": "3d0f81a6-5f8c-43ad-9e2c-d8d15d5ca176"
+    },
+    {
+      "id": "765bb391-4855-40ab-b7ef-02a6e0452400",
+      "type": "maaser",
+      "amount": 100.0,
+      "date": "2025-06-28",
+      "memo": "Cheder NC",
+      "account_id": "3d0f81a6-5f8c-43ad-9e2c-d8d15d5ca176"
+    },
+    {
+      "id": "da8aaf23-1d73-46b2-9458-40d65fb7735e",
+      "type": "maaser",
+      "amount": 75.0,
+      "date": "2025-09-02",
+      "memo": "Open Router",
+      "account_id": "3d0f81a6-5f8c-43ad-9e2c-d8d15d5ca176"
+    },
+    {
+      "id": "38a57257-cd38-4b07-b191-f3bcdc9ffd8e",
+      "type": "maaser",
+      "amount": 100.0,
+      "date": "2025-06-29",
+      "memo": "Chabad Paraguay",
+      "account_id": "ac4bbee5-1e34-4e4b-9418-6ebbd942a940"
+    },
+    {
+      "id": "27233bdf-3473-43a6-993a-8407faffe122",
+      "type": "maaser",
+      "amount": 130.0,
+      "date": "2025-09-22",
+      "memo": "Colel Chabad",
+      "account_id": "ac4bbee5-1e34-4e4b-9418-6ebbd942a940"
+    },
+    {
+      "id": "07f8cf1b-75b3-4c8a-8279-29ae341d9118",
+      "type": "maaser",
+      "amount": 100.0,
+      "date": "2025-12-22",
+      "memo": "Build Future",
+      "account_id": "ac4bbee5-1e34-4e4b-9418-6ebbd942a940"
+    },
+    {
+      "id": "7a947b92-31f5-4a10-8e93-4fe168421f42",
+      "type": "income",
+      "amount": 315.0,
+      "date": "2025-11-26",
+      "memo": "Boruch Liberow (first round)",
+      "account_id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381"
+    },
+    {
+      "id": "1e0abe8a-94e8-4fb8-b3f1-fc860dbaf90e",
+      "type": "maaser",
+      "amount": 18.0,
+      "date": "2025-09-19",
+      "memo": "KSCVK",
+      "account_id": "ac70957c-7c40-4eb0-9524-8459d6df1f90"
+    },
+    {
+      "id": "b0a08e6a-f3e8-4258-bb0d-542bdcb1c391",
+      "type": "maaser",
+      "amount": 36.0,
+      "date": "2025-09-23",
+      "memo": "NWS Chabad Youth",
+      "account_id": "ac70957c-7c40-4eb0-9524-8459d6df1f90"
+    },
+    {
+      "id": "823deb17-07cf-46d6-86e9-1c2840a55438",
+      "type": "maaser",
+      "amount": 20.0,
+      "date": "2025-09-29",
+      "memo": "NCFJE",
+      "account_id": "ac70957c-7c40-4eb0-9524-8459d6df1f90"
+    },
+    {
+      "id": "88df3cc9-2afc-4f52-acaf-7b41ec1ac198",
+      "type": "maaser",
+      "amount": 72.0,
+      "date": "2025-10-04",
+      "memo": "Chabad of Panhandle",
+      "account_id": "ac70957c-7c40-4eb0-9524-8459d6df1f90"
+    },
+    {
+      "id": "19439f5a-06b5-4325-b68a-0be8afa71457",
+      "type": "maaser",
+      "amount": 7.0,
+      "date": "2025-10-14",
+      "memo": "Ohr Chaim",
+      "account_id": "ac70957c-7c40-4eb0-9524-8459d6df1f90"
+    },
+    {
+      "id": "6ad3fb45-dcfb-4d70-94f6-becd81236ece",
+      "type": "maaser",
+      "amount": 180.0,
+      "date": "2025-10-25",
+      "memo": "Chabad of Morristown Isser and Leah",
+      "account_id": "ac70957c-7c40-4eb0-9524-8459d6df1f90"
+    },
+    {
+      "id": "de62fd11-f0f0-4d0e-82ad-208eabac3c48",
+      "type": "maaser",
+      "amount": 36.0,
+      "date": "2025-10-25",
+      "memo": "Midtown Torah Forum",
+      "account_id": "ac70957c-7c40-4eb0-9524-8459d6df1f90"
+    },
+    {
+      "id": "3ff96e35-035d-4ea1-b0b5-e9ea76054e82",
+      "type": "maaser",
+      "amount": 3.0,
+      "date": "2025-10-28",
+      "memo": "Chabad",
+      "account_id": "ac70957c-7c40-4eb0-9524-8459d6df1f90"
+    },
+    {
+      "id": "bdcaa20d-51f3-466d-aac9-4bf8bc1deb4e",
+      "type": "maaser",
+      "amount": 720.0,
+      "date": "2025-10-29",
+      "memo": "Chabad of Manalapan",
+      "account_id": "ac70957c-7c40-4eb0-9524-8459d6df1f90"
+    },
+    {
+      "id": "aad03fc9-8b6e-40d0-b00d-1c6cfe4e7878",
+      "type": "maaser",
+      "amount": 54.0,
+      "date": "2025-11-01",
+      "memo": "Chabad of Covinas Yisroel Baumgarten",
+      "account_id": "ac70957c-7c40-4eb0-9524-8459d6df1f90"
+    },
+    {
+      "id": "c24c0ca9-9708-40b6-841e-a42ebf75af53",
+      "type": "maaser",
+      "amount": 324.0,
+      "date": "2025-11-03",
+      "memo": "Ten Yad",
+      "account_id": "ac70957c-7c40-4eb0-9524-8459d6df1f90"
+    },
+    {
+      "id": "817f6960-ffe1-4be0-a70c-31336adffeec",
+      "type": "maaser",
+      "amount": 36.0,
+      "date": "2025-11-11",
+      "memo": "Chabad of Bologna",
+      "account_id": "ac70957c-7c40-4eb0-9524-8459d6df1f90"
+    },
+    {
+      "id": "5df5e30f-156d-480a-84fa-467d9935d19b",
+      "type": "maaser",
+      "amount": 15.0,
+      "date": "2025-11-25",
+      "memo": "Lubavitch Youth Org",
+      "account_id": "ac70957c-7c40-4eb0-9524-8459d6df1f90"
+    },
+    {
+      "id": "ebef7972-9fb7-4950-acb6-2edb11b2790e",
+      "type": "maaser",
+      "amount": 185.0,
+      "date": "2025-12-02",
+      "memo": "Chabad of Berkshire Valley",
+      "account_id": "ac70957c-7c40-4eb0-9524-8459d6df1f90"
+    },
+    {
+      "id": "e3849418-7523-48d3-ba0f-2f04b8c7d987",
+      "type": "maaser",
+      "amount": 108.0,
+      "date": "2025-12-12",
+      "memo": "Chabad of Cary",
+      "account_id": "ac70957c-7c40-4eb0-9524-8459d6df1f90"
+    },
+    {
+      "id": "4b00ec87-2705-4ca3-add4-e4d4ad00d4b1",
+      "type": "maaser",
+      "amount": 72.0,
+      "date": "2025-12-19",
+      "memo": "Jewish Global",
+      "account_id": "ac70957c-7c40-4eb0-9524-8459d6df1f90"
+    },
+    {
+      "id": "1fbc8830-82a5-4b4b-bb00-f38728107fd1",
+      "type": "maaser",
+      "amount": 50.0,
+      "date": "2025-12-19",
+      "memo": "Jewish Global",
+      "account_id": "ac70957c-7c40-4eb0-9524-8459d6df1f90"
+    },
+    {
+      "id": "61f5d960-f395-4370-937d-c56216e9c906",
+      "type": "income",
+      "amount": 101.0,
+      "date": "2025-12-25",
+      "memo": "JCM (sub)",
+      "account_id": "32a06304-d2da-464a-a0d4-1ab2df512818"
+    },
+    {
+      "id": "03ad0dc8-e3aa-4afb-98ba-34a98305200e",
+      "type": "maaser",
+      "amount": 20.0,
+      "date": "2026-01-04",
+      "memo": "",
+      "account_id": null
+    }
+  ],
+  "accounts": [
+    {
+      "id": "a51b52ac-f13c-49bb-8f3b-f57b46cb037d",
+      "name": "Bank of America - Esty"
+    },
+    {
+      "id": "3d0f81a6-5f8c-43ad-9e2c-d8d15d5ca176",
+      "name": "Chase CC 0124"
+    },
+    {
+      "id": "ac4bbee5-1e34-4e4b-9418-6ebbd942a940",
+      "name": "Chase CC 7331"
+    },
+    {
+      "id": "32a06304-d2da-464a-a0d4-1ab2df512818",
+      "name": "Chase Checking 3383"
+    },
+    {
+      "id": "edd0386f-4d0e-466b-ac63-ef7e7cf3f381",
+      "name": "Chase Checking 0882"
+    },
+    {
+      "id": "aed6beba-da38-4793-87cb-3945f5ceaa36",
+      "name": "Chase Savings"
+    },
+    {
+      "id": "ac70957c-7c40-4eb0-9524-8459d6df1f90",
+      "name": "Capital One"
+    }
+  ],
+  "verified_transactions": [
+    "5b8b3a68-9051-4b70-b4d9-c4525179b5e2",
+    "fc5d8ee8-4303-4613-84ab-083da2313951",
+    "056153c3-a773-400a-9d13-973bb354865f",
+    "3fe35da0-0fb0-4138-86d1-14dfebca8d2e",
+    "4b00ec87-2705-4ca3-add4-e4d4ad00d4b1",
+    "38a57257-cd38-4b07-b191-f3bcdc9ffd8e"
+  ]
 }
